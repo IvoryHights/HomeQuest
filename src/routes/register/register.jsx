@@ -19,11 +19,13 @@ function Login() {
     const formData = new FormData(e.target);
 
     const username = formData.get("username");
+    const email = formData.get("email");
     const password = formData.get("password");
 
     try {
-      const res = await apiRequest.post("/auth/login", {
+      const res = await apiRequest.post("/auth/register", {
         username,
+        email,
         password,
       });
 
@@ -50,14 +52,22 @@ function Login() {
             placeholder="Username"
           />
           <input
+            name="email"
+            required
+            minLength={3}
+            maxLength={20}
+            type="Email"
+            placeholder="Email"
+          />
+          <input
             name="password"
             type="password"
             required
             placeholder="Password"
           />
-          <button disabled={isLoading}>Login</button>
+          <button disabled={isLoading}>Register</button>
           {error && <span>{error}</span>}
-          <Link to="/register">{"Don't"} you have an account?</Link>
+          <Link to="/login">{"Already"} have an account?</Link>
         </form>
       </div>
       <div className="imgContainer">

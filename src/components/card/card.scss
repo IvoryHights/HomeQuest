@@ -1,4 +1,4 @@
-@import "../../responsive.scss";
+@use "../../responsive.scss" as responsive;
 
 .card {
   display: flex;
@@ -8,7 +8,7 @@
     flex: 2;
     height: 200px;
 
-    @include md {
+    @include responsive.md {
       display: none;
     }
 
@@ -19,6 +19,7 @@
       border-radius: 10px;
     }
   }
+
   .textContainer {
     flex: 3;
     display: flex;

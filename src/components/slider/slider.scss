@@ -1,4 +1,4 @@
-@import "../../responsive.scss";
+@use "../../responsive.scss" as responsive;
 
 .slider {
   width: 100%;
@@ -6,7 +6,7 @@
   display: flex;
   gap: 20px;
 
-  @include sm {
+  @include responsive.sm {
     height: 280px;
   }
 
@@ -31,11 +31,11 @@
       img {
         width: 50px;
 
-        @include md {
+        @include responsive.md {
           width: 30px;
         }
 
-        @include sm {
+        @include responsive.sm {
           width: 20px;
         }
 
@@ -44,6 +44,7 @@
         }
       }
     }
+
     .imgContainer {
       flex: 10;
 
@@ -61,8 +62,13 @@
       color: white;
       font-size: 36px;
       font-weight: bold;
-      padding: 50px;
+      padding: 20px; // Reduced padding for smaller screens
       cursor: pointer;
+
+      @include responsive.sm {
+        font-size: 24px;
+        padding: 15px;
+      }
     }
   }
 
@@ -77,10 +83,11 @@
   .bigImage {
     flex: 3;
 
-    @include sm {
+    @include responsive.sm {
       flex: 2;
     }
   }
+
   .smallImages {
     flex: 1;
     display: flex;
@@ -88,14 +95,15 @@
     justify-content: space-between;
     gap: 20px;
 
-    @include sm {
+    @include responsive.sm {
       flex: 1;
+      gap: 10px;
     }
 
     img {
       height: 100px;
 
-      @include sm {
+      @include responsive.sm {
         height: 80px;
       }
     }
