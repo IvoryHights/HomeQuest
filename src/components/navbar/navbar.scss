@@ -1,4 +1,4 @@
-@import "../../responsive.scss";
+@use "../../responsive.scss" as *; /* Use the mixins globally */
 
 nav {
   height: 100px;
@@ -13,8 +13,14 @@ nav {
       display: none;
     }
 
+    @include md {
+      display: inline;
+    }
+
     &:hover {
-      scale: 1.05;
+      transform: scale(
+        1.05
+      ); /* use transform instead of scale for better performance */
     }
   }
 
@@ -36,16 +42,13 @@ nav {
       }
 
       span {
-        @include md {
-          display: none;
-        }
-
         @include sm {
-          display: initial;
+          display: none;
         }
       }
     }
   }
+
   .right {
     flex: 2;
     display: flex;
@@ -145,7 +148,7 @@ nav {
 
       @include sm {
         a {
-          display: initial;
+          display: inline-block;
         }
       }
     }
