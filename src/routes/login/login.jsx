@@ -29,7 +29,7 @@ function Login() {
 
       updateUser(res.data);
 
-      navigate("/");
+      navigate("/list");
     } catch (err) {
       setError(err.response.data.message);
     } finally {

@@ -31,9 +31,9 @@ function Card({ item }) {
             <div className="icon">
               <img src="/save.png" alt="save" />
             </div>
-            <div className="icon">
+            <a href="tel:+233577754899" className="icon">
               <img src="/chat.png" alt="chat" />
-            </div>
+            </a>
           </div>
         </div>
       </div>
