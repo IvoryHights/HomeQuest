@@ -1,11 +1,13 @@
 import { useContext, useState } from "react";
 import "./navbar.scss";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 import { useNotificationStore } from "../../lib/notificationStore";
+import { useNavigation } from "react-router-dom";
 
 function Navbar() {
   const [open, setOpen] = useState(false);
+  const navigation = useNavigation();
 
   const { currentUser } = useContext(AuthContext);
 
@@ -38,10 +40,11 @@ function Navbar() {
           </div>
         ) : (
           <>
-            <a href="/login">Sign in</a>
-            <a href="/register" className="register">
+            <NavLink to={"/login"}>Sign in</NavLink>
+            <NavLink to={"/register"} className="register">
+              {" "}
               Sign up
-            </a>
+            </NavLink>
           </>
         )}
         <div className="menuIcon">
@@ -56,8 +59,8 @@ function Navbar() {
           <a href="/">About</a>
           <a href="/">Contact</a>
           <a href="/">Agents</a>
-          <a href="/">Sign in</a>
-          <a href="/">Sign up</a>
+          <a href="/login">Sign in</a>
+          <a href="/register">Sign up</a>
         </div>
       </div>
     </nav>
