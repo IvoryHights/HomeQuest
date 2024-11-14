@@ -9,7 +9,9 @@
   @include sm {
     height: 280px;
   }
-
+  @include lg {
+    display: none;
+  }
   .fullSlider {
     position: absolute;
     width: 100vw;

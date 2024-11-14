@@ -59,8 +59,8 @@ function Navbar() {
           <a href="/">About</a>
           <a href="/">Contact</a>
           <a href="/">Agents</a>
-          <a href="/login">Sign in</a>
-          <a href="/register">Sign up</a>
+          <NavLink to={"/login"}>Sign in</NavLink>
+          <NavLink to={"/register"}> Sign up</NavLink>
         </div>
       </div>
     </nav>
