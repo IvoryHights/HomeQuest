@@ -1,6 +1,6 @@
 import { useState } from "react";
-import "./filter.scss";
 import { useSearchParams } from "react-router-dom";
+import "./filter.scss";
 
 function Filter() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -14,14 +14,21 @@ function Filter() {
   });
 
   const handleChange = (e) => {
+    const { name, value } = e.target;
     setQuery({
       ...query,
-      [e.target.name]: e.target.value,
+      [name]: value,
     });
   };
 
   const handleFilter = () => {
-    setSearchParams(query);
+    const updatedQuery = {
+      ...query,
+      minPrice: query.minPrice ? parseInt(query.minPrice) : "",
+      maxPrice: query.maxPrice ? parseInt(query.maxPrice) : "",
+      bedroom: query.bedroom ? parseInt(query.bedroom) : "",
+    };
+    setSearchParams(updatedQuery);
   };
 
   return (
@@ -38,7 +45,7 @@ function Filter() {
             name="city"
             placeholder="City Location"
             onChange={handleChange}
-            defaultValue={query.city}
+            value={query.city}
           />
         </div>
       </div>
@@ -49,7 +56,7 @@ function Filter() {
             name="type"
             id="type"
             onChange={handleChange}
-            defaultValue={query.type}
+            value={query.type}
           >
             <option value="">any</option>
             <option value="buy">Buy</option>
@@ -62,7 +69,7 @@ function Filter() {
             name="property"
             id="property"
             onChange={handleChange}
-            defaultValue={query.property}
+            value={query.property}
           >
             <option value="">any</option>
             <option value="apartment">Apartment</option>
@@ -79,33 +86,33 @@ function Filter() {
             name="minPrice"
             placeholder="any"
             onChange={handleChange}
-            defaultValue={query.minPrice}
+            value={query.minPrice}
           />
         </div>
         <div className="item">
           <label htmlFor="maxPrice">Max Price</label>
           <input
-            type="text"
+            type="number"
             id="maxPrice"
             name="maxPrice"
             placeholder="any"
             onChange={handleChange}
-            defaultValue={query.maxPrice}
+            value={query.maxPrice}
           />
         </div>
         <div className="item">
           <label htmlFor="bedroom">Bedroom</label>
           <input
-            type="text"
+            type="number"
             id="bedroom"
             name="bedroom"
             placeholder="any"
             onChange={handleChange}
-            defaultValue={query.bedroom}
+            value={query.bedroom}
           />
         </div>
         <button onClick={handleFilter}>
-          <img src="/search.png" alt="" />
+          <img src="/search.png" alt="Search" />
         </button>
       </div>
     </div>

@@ -24,5 +24,8 @@
   },
   "prisma": {
     "schema": "C:/Users/user/OneDrive/Desktop/HQ-Back/api/prisma/schema.prisma"
+  },
+  "devDependencies": {
+    "@types/node": "^22.9.0"
   }
 }

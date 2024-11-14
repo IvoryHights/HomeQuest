@@ -8,9 +8,9 @@
     flex: 2;
     height: 200px;
 
-    @include md {
-      display: none;
-    }
+    // @include md {
+    //   display: none;
+    // }
 
     img {
       width: 100%;
